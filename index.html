@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("imageButton").addEventListener("click", function () {
                 const img = new Image(); // Create a new image object
 		img.crossOrigin="anonymous"; //Makes sure the image loads properly
-                img.src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fnickelodeonuniverse.com%2Fcharacter%2Fspongebob-squarepants%2F&psig=AOvVaw39ocAZ3wBfXQuPGH9PzTcr&ust=1743905272590000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjS8sTnv4wDFQAAAAAdAAAAABAE"; // Used an image of spongebob from a google search and placed url of it here
+                img.src = "https://upload.wikimedia.org/wikipedia/en/7/7e/SpongeBob_SquarePants_character.svg"; // Used an image of spongebob from a google search and placed url of it here
                 img.onload = function () {
                     ctx.drawImage(img, 200, 50, 150, 150); // Draw image (image, x, y, width, height)
           	 };
