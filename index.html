@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Fathia Olasehinde
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -17,10 +17,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+Intend to make a canvas that is able to fit  phone screen. Hope to include buttons that can put name and image into the canvas.
  
 Known Issues:
-blah, blah, blah, blah
+No current known issues
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
@@ -33,11 +33,68 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
+<style>
+	/*Will be using the w3school tutorial along with chatgpt to help write the code. Centering the content and the stlye of the canvas and buttons*/
+	body{
+		text-align: center;
+		font-family: Arial, sans-serif;
+	}
+	canvas{
+		border: 2px solid black; /* This is for the border around the canvas*/
+		display: block;
+		margin: 0 auto;
+	}
+	button{
+		margin: 10px;
+		padding: 10px;
+		font-size: 16px;
+	}
+	</style>
+</head>
+<body> <!-- This is the part where I am doing the actual HTML5 canvas. (Note to self: The top part of this code is javascript)-->
+	<h1> Welcome to the Canvas App</h1>
+	<!--HTML5 canvas element where the drawing is going to happen-->
+	<canvas id="myCanvas"></canvas>
+	<!--Codes for the buttons that'll be during different actions-->
+	<br>
+	<button id="rectButton">Draw Rectangle</button>
+	<button id="nameButton">Put Name</button>
+	<button id="imageButton">Load Image</button>
+	<button id="clearButton">Clear Canvas</button>
+	
+</body>
 
-<script>
+<script> 
 var docMod = document.lastModified; // loads last modified time stamp into docMod variable
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+//(I added these parts) Use this to wait for the DOM to load 
+document.addEventListener("DOMContentLoaded", function () {
+	//Get the canvas element and its context
+	const canvas= document.getElementById("MyCanvas");
+	const ctx= canvas.getContext("2d);
+				     
+	//Set the size to fit phone screens
+	canvas.width= window.innerWidth*0.9;
+	canvas.height= window.innerHeight*0.6;
+
+	//Button to draw the rectangle on the canvas
+	document.getElementById("rectButton").addEventListener("click", function () {
+                ctx.fillStyle = "blue"; // Set fill color
+                ctx.fillRect(50, 50, 150, 100); // Draw rectangle (x, y, width, height)
+            });
+	//Button to draw my name on the canvas
+	document.getElementById("nameButton").addEventListener("click", function () {
+                ctx.font = "30px Arial"; // Set font size and type
+                ctx.fillStyle = "pink"; // Set text color
+                ctx.fillText("Fathia", 100, 200); // Draw text (text, x, y)
+            });
+	// Button to load and draw an image onto the canvas
+            document.getElementById("imageButton").addEventListener("click", function () {
+                const img = new Image(); // Create a new image object
+                img.src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fnickelodeonuniverse.com%2Fcharacter%2Fspongebob-squarepants%2F&psig=AOvVaw39ocAZ3wBfXQuPGH9PzTcr&ust=1743905272590000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjS8sTnv4wDFQAAAAAdAAAAABAE"; // Set image source (you can change this URL)
+                img.onload = function () {
+                    ctx.drawImage(img, 200, 50, 150, 150); // Draw image (image, x, y, width, height)
 </script>
 
 
