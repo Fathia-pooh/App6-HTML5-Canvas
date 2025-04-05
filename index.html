@@ -38,6 +38,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	body{
 		text-align: center;
 		font-family: Arial, sans-serif;
+		margin: 0em;
 	}
 	canvas{
 		border: 2px solid black; /* This is for the border around the canvas*/
@@ -49,36 +50,32 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		padding: 10px;
 		font-size: 16px;
 	}
-	<style>	
-.body {
-     margin: 0em;
-}
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
+        .page {
+  	  width: 100vw;
+  	  height: 100vh;
+   	 position: fixed;
+    	top: 0;
+    	left: -100vw;
+    	overflow-y: auto;
+    	z-index: 0;
+   	 background-color: hsl(0,0%,100%);
 }
   .page:target {
     left: 0vw;
     z-index: 1;
-}
-</style>
-
+	}
+      </style>
 </head>
 <body>
 	<div id="header" class="w3-container w3-flat-carrot">
 	<h1>App6---HTML5-Canvas</h1>
-</div>
+	</div>
+	
 <div id="content" class="w3-container">
 	<p>Wlecome to the Canvas App</p>
 	
  <!-- This is the part where I am doing the actual HTML5 canvas. (Note to self: The top part of this code is javascript)-->
-	<h1> Welcome to the Canvas App</h1>
+	
 	<!--HTML5 canvas element where the drawing is going to happen-->
 	<canvas id="myCanvas"></canvas>
 	
@@ -92,25 +89,26 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-</div>
+       </div>
 	
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
+	<footer class="w3-bottom w3-container w3-flat-carrot">
+		<p>DIY!</p>
+        </footer>
 
 <script> 
 var docMod = document.lastModified; // loads last modified time stamp into docMod variable
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+
 //(I added these parts) Use this to wait for the DOM to load 
 document.addEventListener("DOMContentLoaded", function () {
 	//Get the canvas element and its context
-	const canvas= document.getElementById("MyCanvas");
-	const ctx= canvas.getContext("2d);
+	const canvas= document.getElementById("myCanvas");
+	const ctx= canvas.getContext("2d");
 				     
 	//Set the size to fit phone screens
-	canvas.width= window.innerWidth*0.9;
-	canvas.height= window.innerHeight*0.6;
+	canvas.width= window.innerWidth * 0.9;
+	canvas.height= window.innerHeight * 0.6;
 
 	//Button to draw the rectangle on the canvas
 	document.getElementById("rectButton").addEventListener("click", function () {
@@ -126,10 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Button to load and draw an image onto the canvas
             document.getElementById("imageButton").addEventListener("click", function () {
                 const img = new Image(); // Create a new image object
+		img.crossOrigin="anonymous"; //Makes sure the image loads properly
                 img.src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fnickelodeonuniverse.com%2Fcharacter%2Fspongebob-squarepants%2F&psig=AOvVaw39ocAZ3wBfXQuPGH9PzTcr&ust=1743905272590000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjS8sTnv4wDFQAAAAAdAAAAABAE"; // Used an image of spongebob from a google search and placed url of it here
                 img.onload = function () {
                     ctx.drawImage(img, 200, 50, 150, 150); // Draw image (image, x, y, width, height)
-           };
+          	 };
             });
 
             // Button to clear everything on the canvas
