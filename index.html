@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("imageButton").addEventListener("click", function () {
                 const img = new Image(); // Create a new image object
 		img.crossOrigin="anonymous"; //Makes sure the image loads properly
-                img.src = "https://upload.wikimedia.org/wikipedia/en/7/7e/SpongeBob_SquarePants_character.svg"; // Used an image of spongebob from a google search and placed url of it here
+                img.src = "https://upload.wikimedia.org/wikipedia/en/7/7e/SpongeBob_SquarePants_character.svg"; // Used an image of spongebob from a google search and made it into a wiki for a more direct link
                 img.onload = function () {
                     ctx.drawImage(img, 200, 50, 150, 150); // Draw image (image, x, y, width, height)
           	 };
