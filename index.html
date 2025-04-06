@@ -101,7 +101,7 @@ alert("This file last modified " + docMod); // generates alert box with time sta
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
 
 //(I added these parts) Use this to wait for the DOM to load 
-document.addEventListener("DOMContentLoaded", function () {
+//document.addEventListener("DOMContentLoaded", function () { (commented out this line because it seems to be causing for the buttons of my code to not work when I load the site).
 	//Get the canvas element and its context
 	const canvas= document.getElementById("myCanvas");
 	const ctx= canvas.getContext("2d");
@@ -114,8 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("rectButton").addEventListener("click", function () {
                 ctx.fillStyle = "blue"; // Set fill color
                 ctx.fillRect(50, 50, 150, 100); // Draw rectangle (x, y, width, height)
-            });
-	//Button to draw my name on the canvas
+	}); 
+	
+		//Button to draw my name on the canvas
 	document.getElementById("nameButton").addEventListener("click", function () {
                 ctx.font = "30px Arial"; // Set font size and type
                 ctx.fillStyle = "pink"; // Set text color
@@ -134,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Button to clear everything on the canvas
             document.getElementById("clearButton").addEventListener("click", function () {
                 ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
-            });
+	    });
         </script>
 </body>
 </html>
