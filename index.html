@@ -126,7 +126,7 @@ console.log("This file last modified " + docMod); // generates message in javaSc
             document.getElementById("imageButton").addEventListener("click", function () {
                 const img = new Image(); // Create a new image object
 		img.crossOrigin="anonymous"; //Makes sure the image loads properly
-                img.src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/SpongeBob_SquarePants_character.svg/800px-SpongeBob_SquarePants_character.svg.png"; // Used an image of spongebob from a google search and made it into a wiki for a more direct link
+                img.src = "https://i.ibb.co/Pt3yBQw/spongebob.png"; // Used an image of spongebob from a google search and made it into a png
                 img.onload = function () {
                     ctx.drawImage(img, 200, 50, 150, 150); // Draw image (image, x, y, width, height)
           	 };
